@@ -18,7 +18,7 @@ const reg=/PAL|NC|NV|SC/;
 
 const storeMapping=arr=>{
 	return storeIDs.map(x=>{
-		arr[0]=x+"PAL";
+		arr[0]=x.toString();
 		return arr;
 	});
 }
@@ -77,3 +77,6 @@ ajax({
 
 	}
 });
+
+
+
