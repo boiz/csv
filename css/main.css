@@ -1,0 +1,8 @@
+td,tr,table{
+	border:solid gray 1px;
+	border-collapse: collapse;
+}
+
+.clone{
+	display:none;
+}
