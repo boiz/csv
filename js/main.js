@@ -19,14 +19,15 @@ const reg=/PAL|NC|NV|SC/;
 const storeMapping=arr=>{
 	return storeIDs.map(x=>{
 		arr[0]=x.toString();
-		return arr;
+		return arr.slice();
 	});
 }
+
 
 time.start("loading");
 
 ajax({
-	url:"files/price_tab100.csv",
+	url:"files/price_tab.csv",
 	method:"get",
 	responseType:"text",
 	callback:res=>{
@@ -40,6 +41,7 @@ ajax({
 
 		time.start("insert");
 		arr.insertColumnAfter("SubDept","Category");
+
 		time.end("insert");
 
 		let newArr=[];
@@ -66,8 +68,9 @@ ajax({
 
 		newArr=newArr.concat(apdArr);
 
+		//console.log(newArr.join("\n"));
 		console.log(newArr);
-		
+
 		time.end("duplicate");
 
 		//console.log(newArr.length+c,arr.length);
